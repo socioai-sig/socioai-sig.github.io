@@ -194,21 +194,83 @@
   .section-head h2{font-size:2.1rem;color:var(--navy-deep);line-height:1.25;}
   .section-head p{margin-top:16px;color:var(--muted);font-size:1rem;line-height:1.7;}
 
-  .themes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-  .theme-card{
-    background:var(--paper);padding:40px 32px;position:relative;overflow:hidden;
-    transition:transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease;
+  .themes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 24px;
+    background: transparent;
+    border: none;
   }
-  .theme-card::before{
-    content:'';position:absolute;top:0;left:0;height:3px;width:0%;
-    background:linear-gradient(90deg,var(--orange),var(--orange-light));
-    transition:width .45s cubic-bezier(.2,.7,.2,1);
+  .theme-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 32px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease;
+    display: flex;
+    flex-direction: column;
   }
-  .theme-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(19,42,76,.1);z-index:1;}
-  .theme-card:hover::before{width:100%;}
-  .theme-num{font-family:'Source Serif 4',serif;font-size:.8rem;color:var(--orange);font-weight:600;margin-bottom:18px;}
-  .theme-card h3{font-size:1.3rem;color:var(--navy-deep);margin-bottom:14px;}
-  .theme-card p{font-size:.92rem;color:var(--muted);line-height:1.65;margin:0;}
+  .theme-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; height: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--orange), var(--orange-light));
+    transition: width .45s cubic-bezier(.2,.7,.2,1);
+  }
+  .theme-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(19,42,76,.09);
+    z-index: 1;
+  }
+  .theme-card:hover::before { width: 100%; }
+  .theme-num {
+    font-family: 'Source Serif 4', serif;
+    font-size: .8rem;
+    color: var(--orange);
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: .08em;
+  }
+  .theme-card h3 {
+    font-size: 1.22rem;
+    color: var(--navy-deep);
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+  .theme-card p {
+    font-size: .91rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0 0 18px 0;
+  }
+  .theme-q-box {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+  }
+  .theme-q-title {
+    font-size: .76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .theme-q-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: .85rem;
+    color: #4a4945;
+    line-height: 1.6;
+  }
+  .theme-q-list li {
+    margin-bottom: 8px;
+  }
+  .theme-q-list li:last-child {
+    margin-bottom: 0;
+  }
 
   /* SPEAKERS */
   .speakers-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:36px 24px;}
@@ -425,25 +487,81 @@
   <div class="blob blob-sky drift-b" style="width:300px;height:300px;top:-60px;right:-80px;"></div>
   <div class="wrap" style="position:relative;z-index:1;">
     <div class="section-head reveal">
-      <span class="kicker">Why this SIG</span>
-      <h2>Three lenses for a field in flux</h2>
-      <p>[Placeholder] As generative AI systems become collaborators, mediators, and sometimes decision-makers within social systems, the CSCW community faces new questions about how we study, design for, and govern human–AI interaction. This session brings together researchers to discuss what's changing — and what shouldn't.</p>
+      <span class="kicker">SIG Discussion Themes</span>
+      <h2>Five Core Themes for AI-Supported Social Computing Research</h2>
+      <p>As large language models and agentic AI systems become collaborators, mediators, and evaluators in scientific inquiry, the CSCW community faces fundamental questions about how we study, design for, and govern human–AI interaction. This SIG convenes researchers across five key discussion tracks:</p>
     </div>
     <div class="themes">
       <div class="theme-card reveal">
-        <div class="theme-num">01</div>
-        <h3>Agency</h3>
-        <p>[Placeholder] How do we preserve meaningful human agency and control as AI systems take on more autonomous roles in collaborative work?</p>
+        <div class="theme-num">THEME 01</div>
+        <h3>Knowledge Building &amp; Research Inquiry</h3>
+        <p>While AI enhances cognitive capacity and accelerates literature synthesis, prolonged reliance risks eroding foundational researcher skills like critical analysis, methodological judgment, and creative ideation—especially for early-career scholars.</p>
+        <div class="theme-q-box">
+          <div class="theme-q-title">Key Discussion Questions</div>
+          <ul class="theme-q-list">
+            <li>What does ethical use of AI agents mean to support short- and long-term knowledge acquisition or research inquiry?</li>
+            <li>How can AI support researchers in building lasting understanding rather than merely producing quick answers?</li>
+            <li>What designs and interaction modalities encourage reflection, skepticism, and intellectual ownership?</li>
+            <li>What forms of AI literacy are essential for researchers to conduct independent research inquiry?</li>
+          </ul>
+        </div>
       </div>
-      <div class="theme-card reveal" style="transition-delay:.12s;">
-        <div class="theme-num">02</div>
-        <h3>Collaboration</h3>
-        <p>[Placeholder] What new models of human–AI teaming are emerging, and how should our methods evolve to study them?</p>
+
+      <div class="theme-card reveal" style="transition-delay:.08s;">
+        <div class="theme-num">THEME 02</div>
+        <h3>Team Formation &amp; Small/Large Team Collaboration</h3>
+        <p>The emerging field of "AI-teaming" examines trust, coordination, and shared mental models when AI agents participate in human team dynamics—altering meeting flows, communication, and power dynamics across disciplinary boundaries.</p>
+        <div class="theme-q-box">
+          <div class="theme-q-title">Key Discussion Questions</div>
+          <ul class="theme-q-list">
+            <li>What are the appropriate boundaries for using AI to facilitate team formation, communication, and research development?</li>
+            <li>How can AI help researchers discover complementary expertise, negotiate shared goals, and coordinate across boundaries?</li>
+            <li>How do different forms of AI-mediated communication affect trust, participation, and power dynamics across scales of collaboration?</li>
+            <li>When might AI recommendations reinforce existing academic hierarchies or biases?</li>
+          </ul>
+        </div>
       </div>
+
+      <div class="theme-card reveal" style="transition-delay:.16s;">
+        <div class="theme-num">THEME 03</div>
+        <h3>Community Building Through Peer Review</h3>
+        <p>A substantial fraction of peer reviews now contain AI-generated or AI-modified content. While LLMs can prompt reviewers to address overlooked issues, automated reviewers often fail to detect faulty reasoning, impacting community trust and accountability.</p>
+        <div class="theme-q-box">
+          <div class="theme-q-title">Key Discussion Questions</div>
+          <ul class="theme-q-list">
+            <li>Which parts of the review process can be responsibly supported by AI (e.g., checking clarity, identifying missing literature, comparing reviewer comments)?</li>
+            <li>Which human tasks should remain non-replaceable (e.g., taking ultimate responsibility for recommendations)?</li>
+            <li>How might AI affect community building, mutual respect, and accountability of scholarly works?</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="theme-card reveal" style="transition-delay:.24s;">
-        <div class="theme-num">03</div>
-        <h3>Governance</h3>
-        <p>[Placeholder] Who is accountable when AI mediates social interaction at scale, and what governance structures can keep pace?</p>
+        <div class="theme-num">THEME 04</div>
+        <h3>Interdisciplinary Research Development &amp; Evaluation</h3>
+        <p>Early benchmarking efforts (such as SoundnessBench) attempt to evaluate whether AI agents can distinguish sound research ideas from flawed ones, raising critical questions about AI's role in defining "good research taste".</p>
+        <div class="theme-q-box">
+          <div class="theme-q-title">Key Discussion Questions</div>
+          <ul class="theme-q-list">
+            <li>Should we teach AI systems to recognize, support, or challenge "good research taste"?</li>
+            <li>How should research taste be defined across diverse disciplines, methods, and communities?</li>
+            <li>What could go wrong if AI systems begin to shape what counts as novel, rigorous, fundable, or publishable research?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="theme-card reveal" style="transition-delay:.32s;">
+        <div class="theme-num">THEME 05</div>
+        <h3>Authorship, Ownership, &amp; Governance</h3>
+        <p>Generative AI policies across journals and conferences are shifting rapidly from problem-framing to explicit governance, yet significant gaps remain in crediting AI contributions to ideation and analysis versus text generation.</p>
+        <div class="theme-q-box">
+          <div class="theme-q-title">Key Discussion Questions</div>
+          <ul class="theme-q-list">
+            <li>How should researchers disclose, credit, and take responsibility for AI-supported ideation, development, and evaluation?</li>
+            <li>Who owns research ideas, text, data interpretations, or experimental designs generated with AI?</li>
+            <li>How do we distinguish harmful inefficiency from productive inefficiency (redundancy, disagreement, slower reflection) essential for creativity and science?</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
