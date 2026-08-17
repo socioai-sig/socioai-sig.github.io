@@ -265,24 +265,18 @@
     }
 
     @keyframes sway-back {
-
-      0%,
-      100% {
+      0%, 100% {
         transform: translateX(-16px);
       }
-
       50% {
         transform: translateX(16px);
       }
     }
 
     @keyframes sway-front {
-
-      0%,
-      100% {
+      0%, 100% {
         transform: translateX(22px);
       }
-
       50% {
         transform: translateX(-22px);
       }
@@ -296,6 +290,11 @@
     .hero-mountains .layer-front {
       opacity: .85;
       transition: transform .2s ease-out;
+    }
+
+    .hero-mountains.paused .sway-back,
+    .hero-mountains.paused .sway-front {
+      animation-play-state: paused !important;
     }
 
     .hero-wave {
@@ -312,19 +311,6 @@
       width: 100%;
       height: auto;
       display: block;
-      animation: wave-bob 8s ease-in-out infinite;
-    }
-
-    @keyframes wave-bob {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(6px);
-      }
     }
 
     .hero-content {
@@ -992,25 +978,23 @@
         <div><span class="label">Format</span><span class="value">In-person SIG session</span></div>
       </div>
       <div class="hero-ctas">
-        <a class="btn-primary" href="#logistics">Add to Calendar</a>
-        <a class="btn-ghost" href="#overview">Read the Overview →</a>
+        <a class="btn-primary" href="#overview">Read the Overview →</a>
+        <a class="btn-ghost" href="#logistics">Add to Calendar</a>
       </div>
     </div>
     <div class="hero-mountains" id="heroMountains">
       <div class="mountain-sway sway-back">
         <svg class="layer-back" viewBox="0 0 1080 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
           style="position:absolute;inset:0;">
-          <path
-            d="M0,220 L0,140 C70,140 90,60 140,60 C190,60 200,150 260,150 C320,150 320,90 380,90 C440,90 460,170 520,170 C580,170 590,80 650,80 C710,80 740,160 800,160 C860,160 880,70 940,70 C1000,70 1040,140 1080,140 L1080,220 Z"
+          <polygon points="0,220 0,140 140,60 260,150 380,90 520,170 650,80 800,160 940,70 1080,140 1080,220"
             fill="#132a4c" opacity="0.35" />
         </svg>
       </div>
       <div class="mountain-sway sway-front">
         <svg class="layer-front" viewBox="0 0 1080 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
           style="position:absolute;inset:0;">
-          <path
-            d="M0,220 L0,180 C90,180 120,110 180,110 C240,110 280,190 340,190 C400,190 420,120 480,120 C540,120 560,195 620,195 C680,195 720,130 780,130 C840,130 860,190 920,190 C980,190 1040,150 1080,150 L1080,220 Z"
-            fill="#132a4c" opacity="0.55" />
+          <polygon points="0,220 0,180 180,110 340,190 480,120 620,195 780,130 920,190 1080,150 1080,220" fill="#132a4c"
+            opacity="0.55" />
         </svg>
       </div>
     </div>
@@ -1333,10 +1317,11 @@
   </footer>
 
   <script>
-    // Scroll progress bar + nav shadow
+    // Scroll progress bar + nav shadow + pause mountain animation when scrolled down
     var progress = document.getElementById('scrollProgress');
     var nav = document.getElementById('mainNav');
     var heroEl = document.getElementById('heroSection');
+    var mountainsEl = document.getElementById('heroMountains');
     function onScroll() {
       var h = document.documentElement;
       var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
@@ -1344,6 +1329,9 @@
       var pastHero = heroEl ? h.scrollTop >= heroEl.offsetHeight * 0.6 : h.scrollTop > 100;
       nav.classList.toggle('nav-visible', pastHero);
       nav.classList.toggle('scrolled', pastHero);
+      if (mountainsEl) {
+        mountainsEl.classList.toggle('paused', pastHero);
+      }
     }
     document.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -1362,10 +1350,9 @@
 
     // Gentle mouse parallax on hero mountains
     var heroSection = document.getElementById('heroSection');
-    var mountains = document.getElementById('heroMountains');
-    if (heroSection && mountains) {
-      var back = mountains.querySelector('.layer-back');
-      var front = mountains.querySelector('.layer-front');
+    if (heroSection && mountainsEl) {
+      var back = mountainsEl.querySelector('.layer-back');
+      var front = mountainsEl.querySelector('.layer-front');
       heroSection.addEventListener('mousemove', function (e) {
         var rect = heroSection.getBoundingClientRect();
         var relX = (e.clientX - rect.left) / rect.width - 0.5;
