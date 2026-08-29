@@ -1,0 +1,9 @@
+# Ignore local template starter kit
+template/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
