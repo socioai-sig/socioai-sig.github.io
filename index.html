@@ -45,7 +45,8 @@
       <p class="hero-sub">Agency, Collaboration, and Governance — a gathering of researchers examining how AI is
         reshaping the questions, methods, and responsibilities of social computing.</p>
       <div class="hero-meta">
-        <div><span class="label">Date &amp; Time</span><span class="value">Wed, Oct 14, 2026 · 11:00 AM – 12:30 PM</span></div>
+        <div><span class="label">Date &amp; Time</span><span class="value">Wed, Oct 14, 2026 · 11:00 AM – 12:30
+            PM</span></div>
         <div><span class="label">Location</span><span class="value">Salt Lake City, UT</span></div>
         <div><span class="label">Format</span><span class="value">In-person SIG session</span></div>
       </div>
@@ -65,8 +66,8 @@
       <div class="mountain-sway sway-front">
         <svg class="layer-front" viewBox="0 0 1080 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
           style="position:absolute;inset:0;">
-          <polygon points="0,220 0,180 180,110 340,190 480,120 620,195 780,130 920,190 1080,150 1080,220"
-            fill="#132a4c" opacity="0.55" stroke="#132a4c" stroke-width="1.5" stroke-linejoin="miter" />
+          <polygon points="0,220 0,180 180,110 340,190 480,120 620,195 780,130 920,190 1080,150 1080,220" fill="#132a4c"
+            opacity="0.55" stroke="#132a4c" stroke-width="1.5" stroke-linejoin="miter" />
         </svg>
       </div>
     </div>
@@ -290,18 +291,25 @@
         </div>
       </div>
 
-      <div class="citation-box reveal" style="margin-top:40px;background:#fff;border:1px solid var(--line);border-radius:4px;padding:28px 32px;position:relative;">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
+      <div class="citation-box reveal"
+        style="margin-top:40px;background:#fff;border:1px solid var(--line);border-radius:4px;padding:28px 32px;position:relative;">
+        <div
+          style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
           <div>
             <span class="kicker" style="margin-bottom:4px;">Citation</span>
             <h3 style="font-size:1.2rem;color:var(--navy-deep);">Cite This Work</h3>
           </div>
-          <button id="copyCiteBtn" onclick="navigator.clipboard.writeText(document.getElementById('citeText').innerText.trim()); this.innerText='Copied!'; setTimeout(() => this.innerText='Copy Citation', 2000);" style="background:var(--navy-deep);color:#fff;border:none;padding:8px 16px;border-radius:2px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:background 0.2s;">
+          <button id="copyCiteBtn"
+            onclick="navigator.clipboard.writeText(document.getElementById('citeText').innerText.trim()); this.innerText='Copied!'; setTimeout(() => this.innerText='Copy Citation', 2000);"
+            style="background:var(--navy-deep);color:#fff;border:none;padding:8px 16px;border-radius:2px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:background 0.2s;">
             Copy Citation
           </button>
         </div>
-        <p id="citeText" style="font-size:.92rem;line-height:1.65;color:var(--ink);margin:0;font-family:'Inter',sans-serif;user-select:all;">
-          Yun Huang, Noshir Contractor, Tai-Quan Peng, Dashun Wang, Cuihua Shen, Manling Li, Yiren Liu, Hangyue Zhang, and Sangho Suh (2026). Rethinking Social Computing Research in the Age of AI: Agency, Collaboration, and Governance. Special Interest Group at CSCW 2026
+        <p id="citeText"
+          style="font-size:.92rem;line-height:1.65;color:var(--ink);margin:0;font-family:'Inter',sans-serif;user-select:all;">
+          Yun Huang, Noshir Contractor, Tai-Quan Peng, Dashun Wang, Cuihua Shen, Manling Li, Yiren Liu, Hangyue Zhang,
+          and Sangho Suh (2026). Rethinking Social Computing Research in the Age of AI: Agency, Collaboration, and
+          Governance. Special Interest Group at CSCW 2026
         </p>
       </div>
     </div>
@@ -415,6 +423,125 @@
     </div>
   </footer>
 
+  <!-- Chatbot / Feedback Widget Launcher -->
+  <button id="chatbotLauncher" class="chat-launcher" type="button" aria-haspopup="dialog" aria-expanded="false"
+    aria-controls="chatbotDrawer" aria-label="Ask a question or leave feedback">
+    <div class="chat-launcher-bubble">
+      <span class="chat-launcher-ping"></span>
+      <!-- Message Icon -->
+      <svg class="chat-icon-msg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <!-- Close (X) Icon -->
+      <svg class="chat-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </div>
+    <span class="chat-launcher-label">Ask a Question</span>
+  </button>
+
+  <!-- Chatbot Drawer / Modal -->
+  <div id="chatbotDrawer" class="chat-drawer" role="dialog" aria-modal="true" aria-labelledby="chatTitle" hidden>
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar-mini" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a8 8 0 0 0-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 0 0-8-8z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <div>
+          <h3 id="chatTitle">SocioAI Assistant</h3>
+          <div class="chat-status">
+            <span class="status-dot"></span>
+            <span>SIG Q&amp;A &amp; Feedback Desk</span>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="chat-close-btn" id="chatCloseBtn" aria-label="Close chat window">&times;</button>
+    </div>
+
+    <!-- Body -->
+    <div class="chat-body" id="chatBody">
+      <!-- Welcome Message -->
+      <div class="chat-msg bot-msg">
+        <div class="msg-content">
+          <p><strong>Hi there! 👋</strong></p>
+          <p>Have a question for our organizers or guest speakers? Or want to share feedback or ideas for SocioAI @ CSCW
+            2026? Drop your note below and our team will receive it directly!</p>
+        </div>
+        <span class="msg-time">Automated Reception</span>
+      </div>
+
+      <!-- Theme Pills -->
+      <div class="theme-pills-wrap">
+        <span class="pills-label">Select topic or question context:</span>
+        <div class="theme-pills" id="themePills">
+          <button type="button" class="theme-pill active" data-topic="General Q&A">General Q&amp;A</button>
+          <button type="button" class="theme-pill" data-topic="Guest Speakers">Guest Speakers</button>
+          <button type="button" class="theme-pill" data-topic="Participation">Participation</button>
+          <button type="button" class="theme-pill" data-topic="Feedback">Feedback</button>
+        </div>
+      </div>
+
+      <!-- Form Container -->
+      <form id="chatFeedbackForm" class="chat-form" novalidate>
+        <!-- Honeypot field (hidden from real users, traps bots) -->
+        <input type="text" id="company_website" name="company_website"
+          style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off"
+          aria-hidden="true">
+
+        <div class="form-group">
+          <label for="chatName">Your Name <span class="opt">(optional)</span></label>
+          <input type="text" id="chatName" name="name" placeholder="e.g., Alex Chen" maxlength="100"
+            autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="chatEmail">Your Email <span class="opt">(optional, for replies)</span></label>
+          <input type="email" id="chatEmail" name="email" placeholder="alex@university.edu" maxlength="120"
+            autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="chatMessage">Your Question or Feedback <span class="req">*</span></label>
+          <textarea id="chatMessage" name="message" rows="3" placeholder="Type your question or feedback here..."
+            required maxlength="1200"></textarea>
+          <div class="char-counter"><span id="charCount">0</span> / 1200</div>
+        </div>
+
+        <div id="chatAlert" class="chat-alert" style="display:none;" role="alert"></div>
+
+        <button type="submit" id="chatSubmitBtn" class="chat-submit-btn">
+          <span>Send to Organizers</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Success State -->
+      <div id="chatSuccessState" class="chat-success-state" style="display:none;">
+        <div class="success-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h4>Thank you!</h4>
+        <p>Your note has been received by the SocioAI organizing team. We appreciate you reaching out!</p>
+        <button type="button" id="chatResetBtn" class="chat-reset-btn">Send another note</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Scroll progress bar + nav shadow + pause mountain animation when scrolled down
     var progress = document.getElementById('scrollProgress');
@@ -463,6 +590,237 @@
         if (front) front.style.transform = 'translateX(0)';
       });
     }
+
+    /* ==========================================================================
+       CHATBOT / FEEDBACK FORM WITH MISUSE GUARDS & GOOGLE SHEETS INTEGRATION
+       ========================================================================== */
+    (function () {
+      /**
+       * DEPLOYMENT NOTE:
+       * 1. Deploy the script in google_apps_script.js as a Google Apps Script Web App.
+       * 2. Set 'Execute as: Me' and 'Who has access: Anyone'.
+       * 3. Paste the generated Web App URL below:
+       */
+      var GOOGLE_SCRIPT_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbygAKAF2cXUnUJlgx8hLYXiwg3CGr5LFJ6POwuIVI_QSF1M7dR6NLhzzWiN3vd2DPvO/exec';
+
+      var launcher = document.getElementById('chatbotLauncher');
+      var drawer = document.getElementById('chatbotDrawer');
+      var closeBtn = document.getElementById('chatCloseBtn');
+      var form = document.getElementById('chatFeedbackForm');
+      var successState = document.getElementById('chatSuccessState');
+      var resetBtn = document.getElementById('chatResetBtn');
+      var alertEl = document.getElementById('chatAlert');
+      var messageEl = document.getElementById('chatMessage');
+      var charCountEl = document.getElementById('charCount');
+      var submitBtn = document.getElementById('chatSubmitBtn');
+      var themePills = document.querySelectorAll('#themePills .theme-pill');
+      var selectedTopic = 'General Q&A';
+      var formOpenTimestamp = 0;
+
+      function showAlert(msg) {
+        alertEl.textContent = msg;
+        alertEl.style.display = 'block';
+      }
+
+      function clearAlert() {
+        alertEl.textContent = '';
+        alertEl.style.display = 'none';
+      }
+
+      function openChat() {
+        drawer.hidden = false;
+        launcher.classList.add('is-active');
+        launcher.setAttribute('aria-expanded', 'true');
+        formOpenTimestamp = Date.now();
+        setTimeout(function () {
+          if (messageEl) messageEl.focus();
+        }, 150);
+      }
+
+      function closeChat() {
+        drawer.hidden = true;
+        launcher.classList.remove('is-active');
+        launcher.setAttribute('aria-expanded', 'false');
+      }
+
+      launcher.addEventListener('click', function () {
+        if (drawer.hidden) {
+          openChat();
+        } else {
+          closeChat();
+        }
+      });
+
+      closeBtn.addEventListener('click', closeChat);
+
+      // Close on Escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !drawer.hidden) {
+          closeChat();
+        }
+      });
+
+      // Topic pill selector
+      themePills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          themePills.forEach(function (p) { p.classList.remove('active'); });
+          pill.classList.add('active');
+          selectedTopic = pill.getAttribute('data-topic') || 'General Q&A';
+        });
+      });
+
+      // Character counter
+      messageEl.addEventListener('input', function () {
+        charCountEl.textContent = messageEl.value.length;
+        if (alertEl.style.display === 'block') clearAlert();
+      });
+
+      // Formula injection sanitizer
+      function sanitizeFormulaInjection(str) {
+        if (!str) return '';
+        var trimmed = str.trim();
+        if (/^[=+\-@]/.test(trimmed)) {
+          return "'" + trimmed;
+        }
+        return trimmed;
+      }
+
+      // Check client-side rate limits (Misuse Guard)
+      function checkRateLimits() {
+        var now = Date.now();
+        var lastSubmit = parseInt(localStorage.getItem('socioai_sig_last_submit') || '0', 10);
+        var COOLDOWN_MS = 45 * 1000; // 45 seconds cooldown
+
+        if (now - lastSubmit < COOLDOWN_MS) {
+          var remainingSec = Math.ceil((COOLDOWN_MS - (now - lastSubmit)) / 1000);
+          return 'Please wait ' + remainingSec + ' seconds before submitting another note.';
+        }
+
+        // Hourly rate limit (max 5 per hour per browser)
+        var hourData = JSON.parse(localStorage.getItem('socioai_sig_hour_submits') || '[]');
+        var oneHourAgo = now - (60 * 60 * 1000);
+        hourData = hourData.filter(function (ts) { return ts > oneHourAgo; });
+
+        if (hourData.length >= 5) {
+          return 'Submission limit reached for this hour (max 5 notes). Please try again later.';
+        }
+
+        return null;
+      }
+
+      function recordSubmission() {
+        var now = Date.now();
+        localStorage.setItem('socioai_sig_last_submit', now.toString());
+        var hourData = JSON.parse(localStorage.getItem('socioai_sig_hour_submits') || '[]');
+        var oneHourAgo = now - (60 * 60 * 1000);
+        hourData = hourData.filter(function (ts) { return ts > oneHourAgo; });
+        hourData.push(now);
+        localStorage.setItem('socioai_sig_hour_submits', JSON.stringify(hourData));
+      }
+
+      // Form submission handler
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        clearAlert();
+
+        // Guard 1: Honeypot check (Bots fill this invisible input)
+        var honeypot = document.getElementById('company_website').value;
+        if (honeypot) {
+          // Silently mimic success to discard bot spam
+          form.style.display = 'none';
+          successState.style.display = 'flex';
+          return;
+        }
+
+        // Guard 2: Submission speed check (Automated scripts submit in < 2.5 seconds)
+        var timeSpent = Date.now() - formOpenTimestamp;
+        if (timeSpent < 2500) {
+          showAlert('Please take a moment before submitting.');
+          return;
+        }
+
+        // Guard 3: Rate limit check (Cooldown & Hourly quota)
+        var rateLimitErr = checkRateLimits();
+        if (rateLimitErr) {
+          showAlert(rateLimitErr);
+          return;
+        }
+
+        // Validate message input
+        var messageRaw = messageEl.value.trim();
+        if (!messageRaw) {
+          showAlert('Please enter your question or feedback.');
+          messageEl.focus();
+          return;
+        }
+
+        if (messageRaw.length < 5) {
+          showAlert('Please write a slightly more descriptive note (at least 5 characters).');
+          messageEl.focus();
+          return;
+        }
+
+        // Prepare payload with formula sanitization
+        var payload = {
+          topic: selectedTopic,
+          name: sanitizeFormulaInjection(document.getElementById('chatName').value),
+          email: sanitizeFormulaInjection(document.getElementById('chatEmail').value),
+          message: sanitizeFormulaInjection(messageRaw).slice(0, 1200),
+          submitted_at: new Date().toISOString()
+        };
+
+        submitBtn.disabled = true;
+        submitBtn.querySelector('span').textContent = 'Sending...';
+
+        // Check if Webhook URL is configured
+        if (!GOOGLE_SCRIPT_WEBHOOK_URL) {
+          // Demo / Unconfigured Mode: Gracefully simulate submission
+          setTimeout(function () {
+            recordSubmission();
+            form.style.display = 'none';
+            successState.style.display = 'flex';
+            submitBtn.disabled = false;
+            submitBtn.querySelector('span').textContent = 'Send to Organizers';
+            console.log('SocioAI Chatbot Form submitted (Demo Mode). Payload:', payload);
+            console.info('To store responses in Google Sheets, follow the setup guide in google_apps_script.js and set GOOGLE_SCRIPT_WEBHOOK_URL in index.html.');
+          }, 600);
+          return;
+        }
+
+        // Production submission to Google Apps Script Web App
+        fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+          .then(function () {
+            recordSubmission();
+            form.style.display = 'none';
+            successState.style.display = 'flex';
+          })
+          .catch(function (err) {
+            console.error('Submission error:', err);
+            showAlert('We encountered a temporary network issue. Please try again in a moment.');
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.querySelector('span').textContent = 'Send to Organizers';
+          });
+      });
+
+      // Reset button to allow another submission
+      resetBtn.addEventListener('click', function () {
+        form.reset();
+        charCountEl.textContent = '0';
+        clearAlert();
+        successState.style.display = 'none';
+        form.style.display = 'flex';
+        formOpenTimestamp = Date.now();
+      });
+    })();
   </script>
 
 </body>
