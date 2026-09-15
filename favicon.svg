@@ -13,32 +13,35 @@
   <!-- Background Squircle Badge -->
   <rect width="64" height="64" rx="16" fill="url(#socioAiBgGrad)" stroke="#f2a06b" stroke-width="2.2" stroke-opacity="0.6" />
 
-  <!-- Outer 5-Edged Pentagonal Network Ring -->
-  <polygon points="32,12 51,25.8 43.8,48.2 20.2,48.2 13,25.8" fill="none"
-    stroke="rgba(242, 160, 107, 0.55)" stroke-width="2.2" stroke-linejoin="round" />
+  <!-- Rotated 5-Edged Pentagonal Network (25deg) -->
+  <g transform="rotate(25 32 32)">
+    <!-- Outer 5-Edged Pentagonal Network Ring -->
+    <polygon points="32,12 51,25.8 43.8,48.2 20.2,48.2 13,25.8" fill="none"
+      stroke="rgba(242, 160, 107, 0.55)" stroke-width="2.2" stroke-linejoin="round" />
 
-  <!-- Inner Radial Synaptic Ties -->
-  <line x1="32" y1="12" x2="32" y2="21" stroke="rgba(242, 160, 107, 0.45)" stroke-width="1.8" stroke-dasharray="2 2" />
-  <line x1="51" y1="25.8" x2="42" y2="32" stroke="rgba(242, 160, 107, 0.45)" stroke-width="1.8" stroke-dasharray="2 2" />
-  <line x1="43.8" y1="48.2" x2="36" y2="41" stroke="rgba(242, 160, 107, 0.45)" stroke-width="1.8" stroke-dasharray="2 2" />
-  <line x1="20.2" y1="48.2" x2="28" y2="41" stroke="rgba(242, 160, 107, 0.45)" stroke-width="1.8" stroke-dasharray="2 2" />
-  <line x1="13" y1="25.8" x2="22" y2="32" stroke="rgba(242, 160, 107, 0.45)" stroke-width="1.8" stroke-dasharray="2 2" />
+    <!-- Inner Radial Synaptic Ties -->
+    <line x1="32" y1="12" x2="32" y2="21" stroke="rgba(242, 160, 107, 0.45)" stroke-width="1.8" stroke-dasharray="2 2" />
+    <line x1="51" y1="25.8" x2="42" y2="32" stroke="rgba(242, 160, 107, 0.45)" stroke-width="1.8" stroke-dasharray="2 2" />
+    <line x1="43.8" y1="48.2" x2="36" y2="41" stroke="rgba(242, 160, 107, 0.45)" stroke-width="1.8" stroke-dasharray="2 2" />
+    <line x1="20.2" y1="48.2" x2="28" y2="41" stroke="rgba(242, 160, 107, 0.45)" stroke-width="1.8" stroke-dasharray="2 2" />
+    <line x1="13" y1="25.8" x2="22" y2="32" stroke="rgba(242, 160, 107, 0.45)" stroke-width="1.8" stroke-dasharray="2 2" />
 
-  <!-- Central Generative AI Cognitive Spark -->
-  <path d="M32 20 C32 26 27 30.5 21 32 C27 33.5 32 38 32 44 C32 38 37 33.5 43 32 C37 30.5 32 26 32 20 Z"
-    fill="url(#socioAiFaviconGrad)" />
+    <!-- Central Generative AI Cognitive Spark -->
+    <path d="M32 20 C32 26 27 30.5 21 32 C27 33.5 32 38 32 44 C32 38 37 33.5 43 32 C37 30.5 32 26 32 20 Z"
+      fill="url(#socioAiFaviconGrad)" />
 
-  <!-- Five Social Computing Network Nodes -->
-  <circle cx="32" cy="12" r="4.2" fill="#132a4c" stroke="#f2a06b" stroke-width="2.2" />
-  <circle cx="51" cy="25.8" r="4.2" fill="#132a4c" stroke="#f2a06b" stroke-width="2.2" />
-  <circle cx="43.8" cy="48.2" r="4.2" fill="#132a4c" stroke="#f2a06b" stroke-width="2.2" />
-  <circle cx="20.2" cy="48.2" r="4.2" fill="#132a4c" stroke="#f2a06b" stroke-width="2.2" />
-  <circle cx="13" cy="25.8" r="4.2" fill="#132a4c" stroke="#f2a06b" stroke-width="2.2" />
+    <!-- Five Social Computing Network Nodes -->
+    <circle cx="32" cy="12" r="4.2" fill="#132a4c" stroke="#f2a06b" stroke-width="2.2" />
+    <circle cx="51" cy="25.8" r="4.2" fill="#132a4c" stroke="#f2a06b" stroke-width="2.2" />
+    <circle cx="43.8" cy="48.2" r="4.2" fill="#132a4c" stroke="#f2a06b" stroke-width="2.2" />
+    <circle cx="20.2" cy="48.2" r="4.2" fill="#132a4c" stroke="#f2a06b" stroke-width="2.2" />
+    <circle cx="13" cy="25.8" r="4.2" fill="#132a4c" stroke="#f2a06b" stroke-width="2.2" />
 
-  <!-- Node Core Dots -->
-  <circle cx="32" cy="12" r="1.5" fill="#f5b285" />
-  <circle cx="51" cy="25.8" r="1.5" fill="#f5b285" />
-  <circle cx="43.8" cy="48.2" r="1.5" fill="#f5b285" />
-  <circle cx="20.2" cy="48.2" r="1.5" fill="#f5b285" />
-  <circle cx="13" cy="25.8" r="1.5" fill="#f5b285" />
+    <!-- Node Core Dots -->
+    <circle cx="32" cy="12" r="1.5" fill="#f5b285" />
+    <circle cx="51" cy="25.8" r="1.5" fill="#f5b285" />
+    <circle cx="43.8" cy="48.2" r="1.5" fill="#f5b285" />
+    <circle cx="20.2" cy="48.2" r="1.5" fill="#f5b285" />
+    <circle cx="13" cy="25.8" r="1.5" fill="#f5b285" />
+  </g>
 </svg>
