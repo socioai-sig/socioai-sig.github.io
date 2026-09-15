@@ -658,6 +658,20 @@ nav .wrap {
   margin-top: 2px;
 }
 
+.speaker .speaker-tag {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: rgba(217, 98, 44, .08);
+  border: 1px solid rgba(217, 98, 44, .25);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
 /* LOGISTICS */
 .logistics {
   background: var(--navy-deep);
