@@ -672,6 +672,55 @@ nav .wrap {
   border-radius: 12px;
 }
 
+@media (min-width: 821px) {
+  .speakers-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .speakers-grid .speaker {
+    flex: 0 1 calc(20% - 24px);
+    max-width: 190px;
+    min-width: 160px;
+  }
+}
+
+/* GUEST SPEAKER SEPARATE ROW */
+.guest-speaker-block {
+  margin-top: 48px;
+  padding-top: 36px;
+  border-top: 1px dashed var(--line);
+  text-align: center;
+}
+
+.guest-speaker-divider {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.guest-speaker-divider span {
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: rgba(217, 98, 44, .06);
+  border: 1px solid rgba(217, 98, 44, .22);
+  padding: 4px 16px;
+  border-radius: 20px;
+}
+
+.guest-speaker-row {
+  display: flex;
+  justify-content: center;
+}
+
+.guest-speaker-row .speaker {
+  max-width: 220px;
+}
+
 /* LOGISTICS */
 .logistics {
   background: var(--navy-deep);
