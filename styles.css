@@ -685,22 +685,25 @@ nav .wrap {
   }
 }
 
-/* GUEST SPEAKER SEPARATE ROW */
-.guest-speaker-block {
+/* INVITED / GUEST SPEAKER SEPARATE ROW */
+.guest-speaker-block,
+.invited-speaker-block {
   margin-top: 48px;
   padding-top: 36px;
   border-top: 1px dashed var(--line);
   text-align: center;
 }
 
-.guest-speaker-divider {
+.guest-speaker-divider,
+.invited-speaker-divider {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
 }
 
-.guest-speaker-divider span {
+.guest-speaker-divider span,
+.invited-speaker-divider span {
   font-size: .74rem;
   font-weight: 700;
   letter-spacing: .12em;
@@ -712,12 +715,14 @@ nav .wrap {
   border-radius: 20px;
 }
 
-.guest-speaker-row {
+.guest-speaker-row,
+.invited-speaker-row {
   display: flex;
   justify-content: center;
 }
 
-.guest-speaker-row .speaker {
+.guest-speaker-row .speaker,
+.invited-speaker-row .speaker {
   max-width: 220px;
 }
 
