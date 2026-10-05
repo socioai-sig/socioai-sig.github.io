@@ -62,10 +62,11 @@ function doPost(e) {
     };
 
     var name = sanitize(data.name || "Anonymous", 80);
-    var affiliation = sanitize(data.affiliation || "Not provided", 120);
+    var affiliation = sanitize(data.affiliation || data.email || "Not provided", 120);
     var topic = sanitize(data.topic || "General Inquiry", 80);
     var question = sanitize(rawQuestion, 1500);
-    var userAgent = sanitize(data.user_agent || "", 180);
+    var userAgent = sanitize(data.user_agent || "", 250);
+    var pageUrl = sanitize(data.url || data.page_url || "", 500);
 
     // 6. Append row to spreadsheet
     var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -73,18 +74,18 @@ function doPost(e) {
 
     // Auto-create header row if sheet is empty
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(["Timestamp", "Name", "Affiliation / Email", "Topic / Theme", "Question / Feedback", "User Agent"]);
-      sheet.getRange(1, 1, 1, 6).setFontWeight("bold").setBackground("#f4ede4");
+      sheet.appendRow(["Timestamp", "Name", "Affiliation / Email", "Topic / Theme", "Question / Feedback", "User Agent", "URL"]);
+      sheet.getRange(1, 1, 1, 7).setFontWeight("bold").setBackground("#f4ede4");
       sheet.setFrozenRows(1);
     }
 
     // 7. MISUSE GUARD: Maximum row cap protection (prevents runaway flooding)
-    if (sheet.getLastRow() >= 5000) {
+    if (sheet.getLastRow() >= 10000) {
       return createJsonResponse({ status: "error", message: "Response limit reached. Please contact organizers directly." });
     }
 
     var timestamp = new Date();
-    sheet.appendRow([timestamp, name, affiliation, topic, question, userAgent]);
+    sheet.appendRow([timestamp, name, affiliation, topic, question, userAgent, pageUrl]);
 
     return createJsonResponse({ status: "success", message: "Feedback submitted successfully." });
 

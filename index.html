@@ -805,7 +805,11 @@
           topic: selectedTopic,
           name: sanitizeFormulaInjection(document.getElementById('chatName').value),
           email: sanitizeFormulaInjection(document.getElementById('chatEmail').value),
+          affiliation: sanitizeFormulaInjection(document.getElementById('chatEmail').value) || 'Not provided',
           message: sanitizeFormulaInjection(messageRaw).slice(0, 1200),
+          question: sanitizeFormulaInjection(messageRaw).slice(0, 1200),
+          user_agent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+          url: typeof window !== 'undefined' ? window.location.href : '',
           submitted_at: new Date().toISOString()
         };
 
