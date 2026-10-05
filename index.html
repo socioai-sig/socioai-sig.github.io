@@ -801,21 +801,11 @@
         }
 
         // Prepare payload with formula sanitization
-        var currentUrl = typeof window !== 'undefined' ? window.location.href : '';
-        var messageWithUrl = currentUrl ? (messageRaw + '
-
-Page URL: ' + currentUrl) : messageRaw;
-
         var payload = {
           topic: selectedTopic,
           name: sanitizeFormulaInjection(document.getElementById('chatName').value),
           email: sanitizeFormulaInjection(document.getElementById('chatEmail').value),
-          affiliation: sanitizeFormulaInjection(document.getElementById('chatEmail').value) || 'Not provided',
-          message: sanitizeFormulaInjection(messageWithUrl).slice(0, 1500),
-          question: sanitizeFormulaInjection(messageWithUrl).slice(0, 1500),
-          user_agent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
-          url: currentUrl,
-          page_url: currentUrl,
+          message: sanitizeFormulaInjection(messageRaw).slice(0, 1200),
           submitted_at: new Date().toISOString()
         };
 
