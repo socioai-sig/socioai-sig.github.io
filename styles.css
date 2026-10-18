@@ -617,6 +617,13 @@ nav .wrap {
 .speaker {
   text-align: center;
 }
+a.speaker {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 
 .speaker .avatar-ring {
   width: 96px;
